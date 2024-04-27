@@ -1,0 +1,118 @@
+
+Work Order
+TEST All Trades All Categories All Statuses
+   Created
+   Updated
+   Status Updated
+   Attachment Added (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   Priority Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   ScheduledDate Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   Trade Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   NTE Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   Category Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   Label Added
+   Label Deleted
+   Description Updated
+   Resolution Created
+   Resolution Updated
+   Resolution Code Updated
+   Root Cause Code Updated
+   Links Added
+   Links Deleted
+   Asset Attached
+   Asset Detached
+   Asset Validated
+   WeatherType Updated (in preview) Not recommended. This event type is currently under development. We cannot ensure that events of this type will reach the recipients.
+   Technician Assigned Filters are not available for this event
+   Technician Unassigned Filters are not available for this event
+   Technician Accepted Filters are not available for this event
+   Technician Declined Filters are not available for this event
+   Note Pinned Filters are not available for this event
+   Note Unpinned Filters are not available for this event
+   Star Added
+   Star Removed
+
+
+WorkOrder	WorkOrderCreated	A work order is generated.
+WorkOrder	WorkOrderNoteAdded	A note is added to a work order. Usually means that the status, scheduled date, completed date, description, etc. is updated.
+WorkOrder	WorkOrderStatusChanged	A work order status is updated.
+WorkOrder	WorOrderAttachmentAdded	An attachment is added to a work order.
+WorkOrder	WorkOrderPriorityChanged	A priority of a work order is changed.
+WorkOrder	WorkOrderScheduledDateChanged	A scheduled date of a work order is updated.
+WorkOrder	WorkOrderTradeChanged	A work order trade is changed.
+WorkOrder	WorkOrderNteChanged	A not-to-exceed amount is modified.
+WorkOrder	WorkOrderCategoryChanged	A work order category is updated.
+WorkOrder	WorkOrderTechnicianAssigned	A work order is assigned to a technician.
+Note: Trade and Category filters are not available for this event.
+WorkOrder	WorkOrderTechnicianUnassigned	A work order is detached from a technician.
+Note: Trade and Category filters are not available for this event.
+WorkOrder	WorkOrderTechnicianAccepted	A technician accepted a work order.
+Note: Trade and Category filters are not available for this event.
+WorkOrder	WorkOrderLinksAdded	A link to another work order is added to the current work order.
+WorkOrder	WorkOrderLinksDeleted	A link to another work order is deleted from a work order.
+WorkOrder	WorkOrderLabelAdded	A label is added to a work order.
+WorkOrder	WorkOrderLabelDeleted	A label is deleted from a work order.
+WorkOrder	WorkOrderDescriptionChanged	A problem description of a work order is changed.
+WorkOrder	WorkOrderResolutionCreated	A resolution is added to a work order.
+WorkOrder	WorkOrderResolutionUpdated	A resolution to a work order is updated.
+WorkOrder	WorkOrderRootCauseCodeCreated	A root cause code is added to a work order.
+WorkOrder	WorkOrderRootCauseCodeUpdated	A root cause code to a work order is updated.
+CheckInAndOut	WorkOrderCheckIn	A check-in is reported.
+CheckInAndOut	WorkOrderCheckOut	A check-out is reported.
+Invoice	InvoiceCreated	An invoice is generated.
+Invoice	InvoiceOpen	An invoice status is changed to OPEN.
+Invoice	InvoiceApproved	An invoice is accepted and can move forward for payment.
+Invoice	InvoiceOnHold	An invoice is put on hold and requires further review before being approved or rejected.
+Invoice	InvoiceReviewed	A multi-level invoice (MLI) is being reviewed.
+Invoice	InvoiceRejected	An invoice is denied as costs or details are not agreed upon. May require the provider to resubmit the invoice after discussion with the subscriber.
+Invoice	InvoiceApprovalCodeChanged	An invoice approval code is changed.
+Invoice	InvoiceVoided	An invoice is voided by a provider.
+Invoice	InvoicePaid	An invoice is paid by the client.
+Invoice	InvoiceDisputed	An invoice is disputed as the entered tax was not verified by our Sales Tax Validation module.
+Invoice	InvoiceStarAdded	An invoice is marked with a star.
+Invoice	InvoiceStarRemoved	A star is removed from an invoice.
+Proposal	ProposalCreated	A proposal is generated.
+Proposal	ProposalOpen	A proposal status is changed to OPEN.
+Proposal	ProposalApproved	A proposal is approved.
+Proposal	ProposalOnHold	A proposal is put on hold and requires further review.
+Proposal	ProposalReviewed	A multi-level proposal (MLP) is being reviewed.
+Proposal	ProposalRejected	A proposal is denied as costs or details are not agreed upon.
+Proposal	ProposalUserAssigned	A proposal is assigned to another user.
+Proposal	ProposalWorkOrderAssigned	A proposal is assigned to a work order.
+Proposal	ProposalVoided	A proposal is voided by a provider.
+Proposal	ProposalScheduled	A proposal is scheduled by a provider.
+Proposal	ProposalAttachmentAdded	An attachment is added to the proposal.
+Private Invitation Events	FbInvitationAccepted	A provider has accepted a subscriber’s invitation to Private Network in Fixxbook.
+Important: You cannot add rules for the FbInvitationAccepted event.
+Location	LocationCreated	A location is created.
+Location	LocationUpdated	A location is updated.
+Location	LocationDeleted	A location is deleted.
+Location	LocationNoteHeaderCreated	A location note header is created.
+Location	LocationNoteHeaderUpdated	A location note header is updated.
+Location	LocationNoteHeaderDeleted	A location note header is deleted.
+Location	LocationNotesChanged	Location notes are changed.
+Subscriber	SubscriberCategoryCreated	A category is created for the subscriber.
+Subscriber	SubscriberCategoryUpdated	A category is updated for the subscriber.
+Subscriber	SubscriberCategoryDeleted	A category is deleted from the list of the subscriber’s categories.
+Subscriber	SubscriberTradeCreated	A trade is created for the subscriber.
+Subscriber	SubscriberTradeUpdated	A trade is updated for the subscriber.
+Subscriber	SubscriberTradeDeleted	A trade is deleted from the list of the subscriber’s trades.
+Subscriber	SubscriberPriorityCreated	A priority is created for the subscriber.
+Subscriber	SubscriberPriorityUpdated	A priority is updated for the subscriber.
+Subscriber	SubscriberPriorityDeleted	A priority is deleted from the list of the subscriber’s priorities.
+Subscriber	SubscriberStatusCreated	The status is created for the subscriber.
+Subscriber	SubscriberStatusUpdated	The status is updated for the subscriber.
+Subscriber	SubscriberStatusDeleted	The status is deleted from the list of the subscriber’s statuses.
+ServiceProvider/Contract	ProviderTradeAssigned	A provider is assigned to a trade.
+ServiceProvider/Contract	ProviderTradeUnassigned	A provider is unassigned from a trade.
+Checklist	CheckListCreated	A checklist is created.
+Checklist	CheckListUpdated	A checklist is updated.
+Checklist	CheckListDeleted	A checklist is deleted.
+Checklist	CheckListResponseAdded	A response is added to the checklist.
+Checklist	CheckListResponseUpdated	A response to the checklist is deleted.
+IssueList	IssueListAssigned	An issue list is assigned to a dashboard.
+Asset	AssetCreated	An asset is created.
+Asset	AssetUpdated	An asset is updated.
+LeakRecord	LeakRecordCreated	A leak record is created.
+LeakRecord	LeakRecordUpdated	A leak record is updated.
+LeakRecord	LeakRecordDeleted	A leak record is deleted.

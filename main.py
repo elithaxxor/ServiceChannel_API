@@ -6,6 +6,10 @@ import pprint
 from docx import Document
 from docx.shared import Inches
 
+'''
+TODO LIST: 
+    def json2dict(toParse) --> Finish the function where the document is built out
+'''
 
 ''' 
 THE PROGRAM RUNS A POST REQUEST TO THE URL, 'https://sb2login.servicechannel.com/oauth/token'
@@ -43,6 +47,22 @@ def MAKE_TOKEN_GLOBAL(toParse):
 
     print('[!] Token Tabel', TOKEN_TABLE)
 
+import json
+
+class TokenParser:
+    def __init__(self, toParse):
+        self.token_table = json.loads(toParse)
+        self.access_token = self.token_table['access_token']
+        self.refresh_token = self.token_table['refresh_token']
+
+    def get_token_table(self):
+        return self.token_table
+
+    def get_access_token(self):
+        return self.access_token
+
+    def get_refresh_token(self):
+        return self.refresh_token
 
 
 
@@ -77,11 +97,16 @@ def get_resp():
         global refresh_token
         access_token = new_tokens['access_token']
         refresh_token = new_tokens['refresh_token']
+        respone_header = response.headers
 
         print("[+]\n", response.text)
         print('[+] TOKEN: \n', access_token)
         print('[+] REFRESH TOKEN: \n', refresh_token)
         print('[+] EXPIRES IN \n', new_tokens['expires_in'])
+
+       # print("[!] RESPONSE HEADERS FROM GET RESP")
+        # for (key, value) in respone_header.items():
+        #     print(f"{key}: {value}")
 
         MAKE_TOKEN_GLOBAL(response.text)
         ## TOKEN RECEIVED, ACCES API
@@ -115,6 +140,12 @@ def accessAPI(access_token, refresh_token):
 
     # Send the POST request
     response = requests.get(url, headers=headers)
+    respone_header = response.headers
+
+    # print("[!] RESPONSE HEADERS FROM APIACCESS")
+    # for (key, value) in respone_header.items():
+    #     print(f"{key}: {value}")
+
 
     ## JSON FORMATTING
     resp_json = response.json()
@@ -287,7 +318,11 @@ def json2dict(toParse):
     print(f'UpdatedDate: {UpdatedDate}')
     print(f'UpdatedDate_DTO: {UpdatedDate_DTO}')
 
+
+
+
 if __name__ == '__main__':
+
     get_resp()
    # runOauth()
    #runSandBox()
