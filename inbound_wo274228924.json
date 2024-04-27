@@ -1,7 +1,7 @@
 {"Action": "UPDATE",
- "EventType": "WorkOrderStarAdded",
+ "EventType": "WorkOrderStarRemoved",
  "Object": {"Category": "REPAIR",
-            "Id": 275863375,
+            "Id": 274228924,
             "LocationId": 2006301252,
             "ProviderId": 2098457598,
             "SubscriberId": 2014917340,
@@ -12,6 +12,6 @@
                           "Id": 4425509,
                           "ProviderId": 2098457598,
                           "UserName": "fuad@dedicatedglass.com"},
-            "UpdatedDate_DTO": "2024-04-27T03:59:03.4359235-04:00"},
+            "UpdatedDate_DTO": "2024-04-27T01:41:12.147267-04:00"},
  "Type": "WoRootNotification",
  "Version": 1}

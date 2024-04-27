@@ -6,11 +6,6 @@ import pprint
 from docx import Document
 from docx.shared import Inches
 
-'''
-TODO LIST: 
-    def json2dict(toParse) --> Finish the function where the document is built out
-'''
-
 ''' 
 THE PROGRAM RUNS A POST REQUEST TO THE URL, 'https://sb2login.servicechannel.com/oauth/token'
 THE PROGRAM SAVES THE TOKENS (ACCESS AND REFRESH) IN A GLOBAL DICTIONARY, 

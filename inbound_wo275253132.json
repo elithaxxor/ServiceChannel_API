@@ -1,8 +1,8 @@
 {"Action": "UPDATE",
  "EventType": "WorkOrderStarAdded",
  "Object": {"Category": "REPAIR",
-            "Id": 275863375,
-            "LocationId": 2006301252,
+            "Id": 275253132,
+            "LocationId": 2006301131,
             "ProviderId": 2098457598,
             "SubscriberId": 2014917340,
             "Trade": "FACADE",
@@ -12,6 +12,6 @@
                           "Id": 4425509,
                           "ProviderId": 2098457598,
                           "UserName": "fuad@dedicatedglass.com"},
-            "UpdatedDate_DTO": "2024-04-27T03:59:03.4359235-04:00"},
+            "UpdatedDate_DTO": "2024-04-27T06:14:15.4183035-04:00"},
  "Type": "WoRootNotification",
  "Version": 1}

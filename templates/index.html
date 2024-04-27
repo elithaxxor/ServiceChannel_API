@@ -1,41 +1,184 @@
-<!DOCTYPE html>
+{ % block body % }
+
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Website Title</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add your custom stylesheets above -->
-    <script src="index.js"></script>
-    <!-- Add your custom scripts above -->
 </head>
 <body>
-    <header>
-        <h1> {{ ACTION }}"</h1>
-        <h2> {{ EVENTTYPE }}</h2>
-        <h3> "TOKEN:" {{ TOKEN }} </h3>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <header class="site-header">
+        <h1>{{ ACTION }}</h1>
+        <h2>{{ EVENTTYPE }}</h2>
     </header>
-    <nav>
+    <nav class="site-nav">
         <ul>
+            <a href="/" class="list-group-item"><i class="fa fa-home fa-fw"></i> refresh </a>
+            <a href="/upload" class="list-group-item"><i class="fa fa-upload fa-fw"></i> upload </a>
+            <a href="/download" class="list-group-item"><i class="fa fa-download fa-fw"></i> download </a>
+            <a href="/jsonobj" class="list-group-item"><i class="fa fa-file-text fa-fw"></i> jsonobj </a>
+            <a href="/web" class="list-group-item"><i class="fa fa-file-text fa-fw"></i> web </a>
 
-            <li> "Id:" {{ ID }}</li>
-            <li> "LocationId:" {{ LOCATIONID }}</li>
-            <li> "ProviderId:" {{ PROVIDERID }}</li>
-            <li> "SubscriberId:" {{ SUBSCRIBERID }}</li>
-            <li> "ACTION:" {{ ACTION }}</li>
-
+<!--            <li><a href="/">Home</a></li>-->
+            <li><a href="/upload">Upload</a></li>
         </ul>
     </nav>
-    <main>
-        <section>
-            <h2> CONTENT </h2>
-            <p> Updated By {{ EMAIL }}</p>
-           <pre>{{ escaped_json }}</pre>
+    <main class="site-main">
+        <section class="content-section">
+            <h2>Content</h2>
+            <pre>{{ CONTENT }}</pre>
+            <pre>{{ ESCAPED_JSON }}</pre>
+        </section>
+        <section class="form-section">
+
+            <h2>UPLOAD / DOWNLOAD</h2>
+            <form method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {{ form.file() }}
+                {{ form.submit() }}
+            </form>
+            <form method="post" actions="/" enctype="multipart/form-data">
+
+                    <p>
+                        <input type="file" name="file" class="form-control" autocomplete="off" required>
+                    </p>
+                    <p>
+                        <input type ="file" name="webook.json" class=form-control" autocomplete="off" required>
+                    </p>
+                    <p>
+                        <input type="submit" value="Submit" class="btn btn-info">
+                    </p>
+            </form>
+
+
+
         </section>
     </main>
-    <footer>
-        <p>&copy; 2019 Your Website Title</p>
+    <footer class="site-footer">
+        <p>© File Created: {{ TIME }}</p>
+   <button id="downloadBtn" class="btn btn-default">Download</button>
+        class-"container" align-"left">
+         href-"/return-file/" target="blank">
+
+
+        <p><small><small>"Token: {{ TOKEN }}"</small></small></p>
     </footer>
+
+
+
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            fetch('/download')
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'document.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+<link rel="stylesheet" href="style.css">
+
 </body>
 </html>
+
+
+
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Your Website Title</title>-->
+<!--    <link rel="stylesheet" href="style.css">-->
+<!--    &lt;!&ndash; Add your custom stylesheets above &ndash;&gt;-->
+<!--    <script src="index.js"></script>-->
+<!--    &lt;!&ndash; Add your custom scripts above &ndash;&gt;-->
+<!--</head>-->
+<!--<body class="body">-->
+<!--    <header>-->
+<!--        <h1> {{ ACTION }}"</h1>-->
+<!--        <h2> {{ EVENTTYPE }}</h2>-->
+<!--        <small><small><small><small>"TOKEN:" {{ TOKEN }}</small></small></small></small>-->
+<!--    </header>-->
+<!--    <nav>-->
+<!--         class-"container" align-"left">-->
+<!--         href-"/return-file/" target="blank"><button class= 'btn btn-default'>-->
+<!--         DOWNLOAD</button>-->
+
+
+<!--            <ul>-->
+<!--                <li><a href="/">Home</a></li>-->
+<!--                <li><a href="/upload">upload</a></li>-->
+<!--                <li><a href="/download">download</a></li>-->
+<!--            </ul>-->
+
+
+<!--    </nav>-->
+<!--    <main>-->
+<!--        <section>-->
+<!--            <h2> CONTENT </h2>-->
+<!--            <pre>  {{ CONTENT }}</pre>-->
+<!--            <pre> {{ ESCAPED_JSON }}</pre>-->
+<!--            <h2> FORM </h2>-->
+<!--            <p> {{ FORM }}</p>-->
+
+<!--            <form method="post" enctype="multipart/form-data">-->
+
+<!--                {{ form.hidden_tag() }}-->
+<!--                {{ form.file() }}-->
+<!--                {{ form.submit() }}-->
+
+<!--            </form>-->
+
+<!--<script>-->
+<!--    document.getElementById('downloadBtn').addEventListener('click', function() {-->
+<!--        fetch('/download')-->
+<!--            .then(response => response.blob())-->
+<!--            .then(blob => {-->
+<!--                // Create a new URL for the blob-->
+<!--                const url = window.URL.createObjectURL(blob);-->
+<!--                // Create a link to download it-->
+<!--                const a = document.createElement('a');-->
+<!--                a.style.display = 'none';-->
+<!--                a.href = url;-->
+<!--                // Give the download a name-->
+<!--                a.download = 'webook.json'; // Change the extension based on your document-->
+<!--                // Append the link to the body-->
+<!--                document.body.appendChild(a);-->
+<!--                // Trigger the download-->
+<!--                a.click();-->
+<!--                // Clean up-->
+<!--                window.URL.revokeObjectURL(url);-->
+<!--                document.body.removeChild(a);-->
+<!--            })-->
+<!--            .catch(error => console.error('Error:', error));-->
+<!--    });-->
+<!--</script>-->
+
+
+<!--           <pre>{{ escaped_json }}</pre>-->
+<!--        </section>-->
+<!--    </main>-->
+<!--    <footer>-->
+<!--        <p>&copy; 2019 Your Website Title</p>-->
+<!--    </footer>-->
+<!--</body>-->
+<!--</html>-->
+<!--{ % end block % }-->
